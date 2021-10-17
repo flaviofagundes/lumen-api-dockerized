@@ -1,0 +1,56 @@
+##
+#  Apoio: https://sendgrid.com/docs/Classroom/Send/v3_Mail_Send/curl_examples.html
+##
+
+
+insert
+curl -i -X POST -H "Content-Type:application/json" http://localhost:3000/book -d '{"title":"Test Title","author":"test author","isbn":"12345"}'
+curl -i -X POST -H "Content-Type:application/json" http://localhost:3000/secao -d '{"nr_ordem":"1","nm_menu":"Sobre","nm_titulo":"Sobre a empresa","ds_conteudo":"bla bla bla bla","bl_ativa":"1"}'
+
+
+list
+curl -i -X GET -H "Content-Type:application/json" http://localhost:3000/book
+curl -i -X GET -H "Content-Type:application/json" http://localhost:3000/secao 
+
+recupera
+curl -v -H "Accept:application/json" http://localhost:3000/book/2
+curl -v -H "Accept:application/json" http://localhost:3000/secao/1
+
+atualiza
+curl -v -H "Content-Type:application/json" -X PUT http://localhost:3000/book/3 -d '{"title":"Test updated title","author":"test upadted author","isbn":"1234567"}'
+curl -v -H "Content-Type:application/json" -X PUT http://localhost:3000/secao/2 -d '{"nr_ordem":"1","nm_menu":"Sobre 2","nm_titulo":"Sobre a empresa","ds_conteudo":"bla bla bla bla","bl_ativa":"1"}'
+
+curl --request PUT \
+  --url http://localhost:8080/book/3 \
+  --header 'api_token: 4321' \
+  --header 'Content-Type: application/json' \
+  --data '{"title":"Test updated title","author":"test upadted author","isbn":"1234567"}'
+
+
+curl --request PUT   --url http://localhost:8080/book/3    --header 'api_token: 4321'   --header 'Content-Type: application/json'   --data '{"title":"Test updated title","author":"test upadted author","isbn":"1234567"}'
+
+
+remove
+curl -i -X DELETE http://localhost:8080/book/4
+
+no postman tem que passar no raw como tipo json
+
+login
+curl -i -X POST -H "Content-Type:application/json" http://localhost:3000/api/auth/login -d '{"email":"admin@admin.com","password":"admin"}'
+
+
+logout
+curl -i -X POST -H "access_token:cf69230bb0023c40d6ede0958e28fd5e" http://localhost:8080/api/auth/logout 
+
+
+
+
+
+curl -i -X POST -H "Content-Type:application/json" http://localhost:8080/api/auth/login -d '{"username":"admin@admin.com","password":"1234"}'
+
+curl --request PUT   --url http://localhost:8080/book/3    --header 'api_token: 4321'   --header 'Content-Type: application/json'   --data '{"title":"Test updated title","author":"test upadted author","isbn":"1234567"}'
+
+pendências:
+- lançar todas as exceções em JSON
+- exceções na autenticação
+- autenticação em base64
