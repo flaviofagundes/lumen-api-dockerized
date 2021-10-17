@@ -50,7 +50,7 @@ application/.env
 ```
 
 # Additional Project Information
-You can find more information about this project in its post at my personal blog.
+You can find more information about this project in its [post](https://medium.com/@flaviofagundes/a-lightweight-basic-api-in-php-using-the-lumen-framework-in-a-dockerized-environment-2b657057bf4f) at my personal blog.
 
 
 # Lumen PHP Framework
